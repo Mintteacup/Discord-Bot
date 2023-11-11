@@ -1,6 +1,10 @@
 import discord #Imports discord library
+import config
 
-client = discord.client() #Creates an instance of a client
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = discord.Client(intents=intents) #Creates an instance of a client
 
 @client.event #This registers an event
 async def on_ready(): #Sends a message when the bot is ready
@@ -14,4 +18,4 @@ async def on_message(message): #Listens for messages
     if message.content.startswith("!hello"):
         await message.channel.send("Hello!")
 
-client.run()
+client.run(config.access_token)
