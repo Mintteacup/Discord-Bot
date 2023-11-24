@@ -8,7 +8,7 @@ client = discord.Client(intents=intents) #Creates an instance of a client
 
 @client.event #This registers an event
 async def on_ready(): #Sends a message when the bot is ready
-    print("We have logged in as {0.user}".format(client))
+    print(f"We have logged in as {client.user}")
 
 @client.event
 async def on_message(message): #Listens for messages
